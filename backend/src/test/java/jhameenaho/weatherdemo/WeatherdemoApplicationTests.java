@@ -24,8 +24,8 @@ public class WeatherdemoApplicationTests {
         this.mvc = webAppContextSetup(webApplicationContext).build();
     }
     
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
 }

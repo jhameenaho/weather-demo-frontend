@@ -3,7 +3,6 @@ package jhameenaho.weatherdemo.service.impl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import java.net.URI;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import jhameenaho.weatherdemo.model.output.TemperatureOutput;
