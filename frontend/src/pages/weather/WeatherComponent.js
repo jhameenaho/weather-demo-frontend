@@ -1,10 +1,12 @@
 import React from 'react'
+import WeatherForm from '../../components/form/WeatherForm'
 
-export default ({weather, handleSubmit}) => (
-  <div className="main">
+export default ({weather, saveFavourite, searchWeather}) => (
+  <div className="weather-wrapper">
+     <WeatherForm onSubmit={searchWeather} save={saveFavourite}/>
 
-    <button onClick={handleSubmit}>Add favourite</button>
 
+     <button onClick={saveFavourite.bind(null, weather)}>Save as favourite</button>
     <p>City: {weather.city}</p>
     <p>Country: {weather.country}</p>
     <ul className="list-wrapper">

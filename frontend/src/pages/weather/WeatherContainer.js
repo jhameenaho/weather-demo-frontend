@@ -8,25 +8,31 @@ import Weather from './WeatherComponent'
 class WeatherContainer extends Component {
 
   componentDidMount () {
-    getWeather()
     getFavourites()
   }
 
-  handleSubmit (e) {
-    console.log("ASD")
-    e.preventDefault()
-    saveFavourite("testi testi")
+  searchWeather (values) {
+    getWeather(values)
+  }
+
+  saveFavourite (weather) {
+    saveFavourite(weather)
   }
 
   render () {
     return (
-      <Weather {...this.props} handleSubmit={this.handleSubmit} />
+      <Weather 
+        {...this.props} 
+        saveFavourite={this.saveFavourite}
+        searchWeather={this.searchWeather}
+      />
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  weather: state.weather
+  weather: state.weather.weather,
+  query: state.weather.query
 })
 
 export default withRouter(connect(mapStateToProps)(WeatherContainer))

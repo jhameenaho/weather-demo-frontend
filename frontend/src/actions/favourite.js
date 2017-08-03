@@ -17,8 +17,11 @@ export function saveFavouriteRequest() {
   return { type: types.SAVE_FAVOURITE_REQUEST }
 }
 
-export function saveFavouriteSuccess() {
-  return { type: types.SAVE_FAVOURITE_SUCCESS }
+export function saveFavouriteSuccess(favourites) {
+  return { 
+    type: types.SAVE_FAVOURITE_SUCCESS,
+    favourites
+   }
 }
 
 export function getFavourites() {
@@ -32,9 +35,7 @@ export function getFavourites() {
 
 export function saveFavourite(favourite) {
   store.dispatch(saveFavouriteRequest())
-  return axios.post('favourite', {
-    query: favourite
-  }).then((response) => {
+  return axios.post('favourite', favourite).then((response) => {
     store.dispatch(saveFavouriteSuccess(response.data))
   }).catch((error) => {
     console.log(error)

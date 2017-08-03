@@ -1,7 +1,6 @@
 import * as types from '../types'
 
-const initState = 
-{
+const blankWeather = {
   city: '',
   country: '',
   temperature: [
@@ -13,12 +12,22 @@ const initState =
   ]
 }
 
+const initState = 
+{
+  query: '',
+  weather: blankWeather
+}
+
 const weather = (state = initState, action) => {
   switch (action.type) {
     case types.GET_WEATHER_REQUEST:
       return state
     case types.GET_WEATHER_SUCCESS:
-      return action.weather
+      return {
+        ...state,
+        query: action.query,
+        weather: action.weather
+      }
     default:
       return state
   }

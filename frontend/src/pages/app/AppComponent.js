@@ -1,15 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Header from '../../components/header/Header'
 
-export default ({children}) => (
-  <div className="App">
-    <div className="App-header">
-      <h2>Work in progress</h2>
+require("./App.css")
+
+export default ({children, links}) => (
+  <div className="App-wrapper">
+    <Header links={links}/>
+    <div className="App-content">
+      {children}
     </div>
-
-    <Link to={'/'}>Home</Link>
-    <Link to={'/login'}>Login</Link>
-
-    {children}
   </div>
 )

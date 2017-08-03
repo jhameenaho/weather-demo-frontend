@@ -6,17 +6,18 @@ export function getWeatherRequest() {
   return { type: types.GET_WEATHER_REQUEST };
 }
 
-export function getWeatherSuccess(weather) {
+export function getWeatherSuccess(query, weather) {
   return {
     type: types.GET_WEATHER_SUCCESS,
+    query,
     weather
   }
 }
 
-export function getWeather() {
+export function getWeather(weather) {
   store.dispatch(getWeatherRequest())
-  return axios.get('weather/oulu').then((response) => {
-    store.dispatch(getWeatherSuccess(response.data))
+  return axios.get('weather/' + weather.query).then((response) => {
+    store.dispatch(getWeatherSuccess(weather.query, response.data))
   }).catch((error) => {
     console.log(error)
   }) 
