@@ -1,5 +1,6 @@
 package jhameenaho.weatherdemo.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -17,6 +18,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     
+    @Autowired
+    private JWTAuthenticationEntryPoint unauthorizedHandler;
+    
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurerAdapter() {
@@ -32,6 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity
             .csrf().disable()
             .cors().and()
+            .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
             .authorizeRequests()
             .antMatchers(HttpMethod.GET, "/weather/**").permitAll()
