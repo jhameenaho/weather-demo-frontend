@@ -12,7 +12,6 @@ public class Favourite implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @JsonIgnore
     private Long id;
     private String city;
     private String country;
