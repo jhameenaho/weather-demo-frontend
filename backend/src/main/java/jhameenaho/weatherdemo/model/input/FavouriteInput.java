@@ -1,18 +1,28 @@
 package jhameenaho.weatherdemo.model.input;
 
 public class FavouriteInput {
-    private String query;
+    private String city;
+    private String country;
 
-    public FavouriteInput(String query) {
-        this.query = query;
+    public FavouriteInput(String city, String country) {
+        this.city = city;
+        this.country = country;
     }
 
-    public String getQuery() {
-        return query;
+    public String getCity() {
+        return city;
     }
 
-    public void setQuery(String query) {
-        this.query = query;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public FavouriteInput() {

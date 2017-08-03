@@ -50,7 +50,7 @@ public class FavouriteServiceImplIntegrationTests {
     
     @Before
     public void setUp() {
-        Favourite favourite = new Favourite("Oulu", "user1");
+        Favourite favourite = new Favourite("Oulu", "FI", "user1");
         List<Favourite> favouriteList = new ArrayList<>();
         favouriteList.add(favourite);
         Mockito.when(favouriteRepository.findByUsername(favourite.getUsername())).thenReturn(favouriteList);

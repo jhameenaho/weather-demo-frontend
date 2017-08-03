@@ -58,7 +58,7 @@ public class FavouriteControllerUnitTests {
     @Test
     @WithMockUser(username = "user1")
     public void givenFavourites_whenGetFavourites_thenReturnFavouritesArray() throws Exception {
-        Favourite favourite = new Favourite("Oulu", "");
+        Favourite favourite = new Favourite("Oulu", "FI", "");
 
         given(service.getFavourites("user1")).willReturn(Arrays.asList(favourite));
 
@@ -66,22 +66,23 @@ public class FavouriteControllerUnitTests {
             .andExpect(status().isOk())
             .andExpect(content().contentType("application/json;charset=UTF-8"))
             .andExpect(jsonPath("$", hasSize(1)))
-            .andExpect(jsonPath("$[0].query", is(favourite.getQuery())));
+            .andExpect(jsonPath("$[0].query", is(favourite.getCity())));
     }
     
     @Test
     @WithMockUser(username = "user1")
     public void whenCreateFavourite_thenReturnFavouriteObject() throws Exception {
-        FavouriteInput favInput = new FavouriteInput("Oulu");
+        FavouriteInput favInput = new FavouriteInput("Oulu", "FI");
 
-        given(service.createFavourite(favInput.getQuery(), "user1")).willReturn(new Favourite(favInput.getQuery(), ""));
+        given(service.createFavourite(favInput.getCity(), favInput.getCountry(), "user1"))
+                .willReturn(new Favourite(favInput.getCity(), favInput.getCountry(), ""));
 
         mvc.perform(post("/favourite")
             .contentType(MediaType.APPLICATION_JSON)
             .content(objectToJson(favInput)))
             .andExpect(status().isCreated())
             .andExpect(content().contentType("application/json;charset=UTF-8"))
-            .andExpect(jsonPath("$.query", is(favInput.getQuery())));
+            .andExpect(jsonPath("$.query", is(favInput.getCity())));
     }
     
     @Test

@@ -40,8 +40,8 @@ public class FavouriteController {
     
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public Favourite createFavourite(@RequestBody FavouriteInput query) {
-        return favouriteService.createFavourite(query.getQuery(), getUsername(request));
+    public Favourite createFavourite(@RequestBody FavouriteInput favourite) {
+        return favouriteService.createFavourite(favourite.getCity(), favourite.getCountry(), getUsername(request));
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")

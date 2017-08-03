@@ -14,7 +14,8 @@ public class Favourite implements Serializable {
     @GeneratedValue(strategy=GenerationType.AUTO)
     @JsonIgnore
     private Long id;
-    private String query;
+    private String city;
+    private String country;
     @JsonIgnore
     private String username;
 
@@ -26,12 +27,20 @@ public class Favourite implements Serializable {
         this.id = id;
     }
 
-    public String getQuery() {
-        return query;
+    public String getCity() {
+        return city;
     }
 
-    public void setQuery(String query) {
-        this.query = query;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getUsername() {
@@ -45,8 +54,9 @@ public class Favourite implements Serializable {
     public Favourite() {
     }
 
-    public Favourite(String query, String username) {
-        this.query = query;
+    public Favourite(String city, String country, String username) {
+        this.city = city;
+        this.country = country;
         this.username = username;
     }
 }

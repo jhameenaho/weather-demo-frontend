@@ -23,7 +23,7 @@ public class FavouriteRepositoryIntegrationTests {
     
     @Test
     public void whenFindByUsername_thenReturnList() {
-        Favourite favourite = new Favourite("oulu", "user1");
+        Favourite favourite = new Favourite("oulu", "FI", "user1");
         entityManager.persist(favourite);
         entityManager.flush();
 

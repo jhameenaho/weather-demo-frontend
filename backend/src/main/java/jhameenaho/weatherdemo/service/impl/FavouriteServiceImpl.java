@@ -21,8 +21,8 @@ public class FavouriteServiceImpl implements FavouriteService {
     }
 
     @Override
-    public Favourite createFavourite(String query, String username) {
-        Favourite favourite = new Favourite(query, username);
+    public Favourite createFavourite(String city, String country, String username) {
+        Favourite favourite = new Favourite(city, country, username);
         
         return favouriteRepository.save(favourite);
     }
