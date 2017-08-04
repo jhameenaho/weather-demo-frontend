@@ -24,6 +24,17 @@ export function saveFavouriteSuccess(favourites) {
    }
 }
 
+export function deleteFavouriteRequest() {
+  return { type: types.DELETE_FAVOURITE_REQUEST }
+}
+
+export function deleteFavouriteSuccess(id) {
+  return { 
+    type: types.DELETE_FAVOURITE_SUCCESS,
+    id
+   }
+}
+
 export function getFavourites() {
   store.dispatch(getFavouritesRequest())
   return axios.get('favourite').then((response) => {
@@ -37,6 +48,15 @@ export function saveFavourite(favourite) {
   store.dispatch(saveFavouriteRequest())
   return axios.post('favourite', favourite).then((response) => {
     store.dispatch(saveFavouriteSuccess(response.data))
+  }).catch((error) => {
+    console.log(error)
+  }) 
+}
+
+export function deleteFavourite(id) {
+  store.dispatch(deleteFavouriteRequest())
+  return axios.delete('favourite/' + id).then((response) => {
+    store.dispatch(deleteFavouriteSuccess(id))
   }).catch((error) => {
     console.log(error)
   }) 

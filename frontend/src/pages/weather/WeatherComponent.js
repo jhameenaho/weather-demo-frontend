@@ -1,21 +1,20 @@
 import React from 'react'
 import WeatherForm from '../../components/form/WeatherForm'
-import Time from 'react-time'
+import TemperatureList from '../../components/list/TemperatureList'
+import FavouritesList from '../../components/list/FavouritesList'
 
-export default ({weather, saveFavourite, searchWeather}) => (
+export default ({favourites, weather, saveFavourite, searchWeather, deleteFavourite}) => (
   <div className="weather-wrapper">
-     <WeatherForm onSubmit={searchWeather} save={saveFavourite}/>
+     <WeatherForm onSubmit={searchWeather}/>
+    
+    { Object.keys(weather).length > 0 &&
+      <div>
+        <button onClick={saveFavourite.bind(null, weather, favourites)}>Save as favourite</button>
+        <p>City: {weather.city} Country: {weather.country}</p>
+        <TemperatureList weather={weather}/>
+      </div>
+    }
 
-
-     <button onClick={saveFavourite.bind(null, weather)}>Save as favourite</button>
-    <p>City: {weather.city}</p>
-    <p>Country: {weather.country}</p>
-    <ul className="list-wrapper">
-      { weather.temperature.map(item => { return (
-        <li key={item.from} className="item-list-item">
-          <p>{item.value} at <Time value={item.from} format="HH:mm DD.MM." /></p>
-        </li>
-      )}) }
-    </ul>
+    <FavouritesList favourites={favourites} deleteFavourite={deleteFavourite}/>
   </div>
 )

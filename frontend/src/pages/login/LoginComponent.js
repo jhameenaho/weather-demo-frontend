@@ -1,29 +1,8 @@
 import React from 'react'
-import { Field, reduxForm } from 'redux-form'
+import LoginForm from '../../components/form/LoginForm'
 
-let LoginForm = props => {
-  const { handleSubmit } = props
-  return (
-    <form onSubmit={ handleSubmit }>
-      <Field
-        name="username"
-        placeholder="Username"
-        component="input"
-        type="text"
-      />
-      <Field
-        name="password"
-        placeholder="Password"
-        component="input"
-        type="password"
-      />
-      <button type="submit">Submit</button>
-    </form>
-  )
-}
-
-LoginForm = reduxForm({
-  form: 'login'
-})(LoginForm)
-
-export default LoginForm;
+export default ({handleSubmit}) => (
+  <div className="login-wrapper">
+    <LoginForm onSubmit={handleSubmit} />
+  </div>
+)

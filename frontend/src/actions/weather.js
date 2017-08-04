@@ -14,10 +14,10 @@ export function getWeatherSuccess(query, weather) {
   }
 }
 
-export function getWeather(weather) {
+export function getWeather(query) {
   store.dispatch(getWeatherRequest())
-  return axios.get('weather/' + weather.query).then((response) => {
-    store.dispatch(getWeatherSuccess(weather.query, response.data))
+  return axios.get('weather/' + query).then((response) => {
+    store.dispatch(getWeatherSuccess(query, response.data))
   }).catch((error) => {
     console.log(error)
   }) 

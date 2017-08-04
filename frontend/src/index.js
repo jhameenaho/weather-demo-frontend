@@ -19,6 +19,7 @@ ReactDOM.render(
     <Router history={history}>
       <App>
         <Route exact path='/' component={Weather} />
+        <Route exact path='/weather/:query?' component={Weather} />
         <Route exact path='/login' component={Login} />
       </App>
     </Router>

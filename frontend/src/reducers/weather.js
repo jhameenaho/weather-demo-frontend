@@ -1,21 +1,9 @@
 import * as types from '../types'
 
-const blankWeather = {
-  city: '',
-  country: '',
-  temperature: [
-    {
-      from: '',
-      to: '',
-      value: ''
-    }
-  ]
-}
-
 const initState = 
 {
   query: '',
-  weather: blankWeather
+  weather: {}
 }
 
 const weather = (state = initState, action) => {

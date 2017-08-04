@@ -1,22 +1,39 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getWeather } from '../../actions/weather'
-import { getFavourites, saveFavourite } from '../../actions/favourite'
+import { saveFavourite, deleteFavourite } from '../../actions/favourite'
 import { withRouter } from 'react-router-dom'
 import Weather from './WeatherComponent'
 
 class WeatherContainer extends Component {
 
   componentDidMount () {
-    getFavourites()
+    if (this.props.match.params.query)
+      getWeather(this.props.match.params.query)
   }
 
-  searchWeather (values) {
-    getWeather(values)
+  componentWillUpdate (nextProps) {
+    if (this.props.match.params.query !== nextProps.match.params.query && nextProps.match.params.query)
+      getWeather(nextProps.match.params.query)
   }
 
-  saveFavourite (weather) {
-    saveFavourite(weather)
+  searchWeather = (values) => {
+    getWeather(values.query)
+    this.props.history.push("/weather/" + values.query);
+  }
+
+  saveFavourite = () => {
+    let w = this.props.weather
+    let f = this.props.favourites
+    if (f.filter(i => (i.city + "" + i.country) === (w.city + "" + w.country)).length === 0) {
+      saveFavourite(w)
+    } else {
+      console.log("Favourite already exists!")
+    }
+  }
+
+  deleteFavourite(id) {
+    deleteFavourite(id)
   }
 
   render () {
@@ -25,6 +42,7 @@ class WeatherContainer extends Component {
         {...this.props} 
         saveFavourite={this.saveFavourite}
         searchWeather={this.searchWeather}
+        deleteFavourite={this.deleteFavourite}
       />
     )
   }
@@ -32,7 +50,8 @@ class WeatherContainer extends Component {
 
 const mapStateToProps = (state) => ({
   weather: state.weather.weather,
-  query: state.weather.query
+  favourites: state.favourite.favourites,
+  auth: state.auth.authorized
 })
 
 export default withRouter(connect(mapStateToProps)(WeatherContainer))
