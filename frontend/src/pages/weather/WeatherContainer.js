@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getWeather } from '../../actions/weather'
-import { saveFavourite, deleteFavourite } from '../../actions/favourite'
+import { saveFavourite, deleteFavourite, getFavourites } from '../../actions/favourite'
 import { withRouter } from 'react-router-dom'
 import Weather from './WeatherComponent'
 
@@ -10,6 +10,9 @@ class WeatherContainer extends Component {
   componentDidMount () {
     if (this.props.match.params.query)
       getWeather(this.props.match.params.query)
+
+    if (this.props.authorized && this.props.favourites.length === 0)
+      getFavourites()
   }
 
   componentWillUpdate (nextProps) {
@@ -18,7 +21,6 @@ class WeatherContainer extends Component {
   }
 
   searchWeather = (values) => {
-    getWeather(values.query)
     this.props.history.push("/weather/" + values.query);
   }
 
@@ -51,7 +53,7 @@ class WeatherContainer extends Component {
 const mapStateToProps = (state) => ({
   weather: state.weather.weather,
   favourites: state.favourite.favourites,
-  auth: state.auth.authorized
+  authorized: state.auth.authorized
 })
 
 export default withRouter(connect(mapStateToProps)(WeatherContainer))

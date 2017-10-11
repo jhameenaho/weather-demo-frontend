@@ -1,6 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
+import './FavouritesList.css'
+
 export default ({favourites, deleteFavourite}) => (
   <ul className="fav-wrapper">
     { favourites.map(item => { return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-require('./Header.css')
+import './Header.css'
 
 export default ({links}) => (
   <div className="header-wrapper">
@@ -9,7 +9,7 @@ export default ({links}) => (
       <ul className="header-list">
         { links.map(link => { return (
           <li className="header-item" key={link.path} >
-            <NavLink to={link.path} exact={true} className="header-link" activeClassName="header-link-active">{link.text}</NavLink>
+            <NavLink to={link.path} exact={link.exact} className="header-link" activeClassName="header-link-active">{link.text}</NavLink>
           </li>
         )}) }
       </ul>

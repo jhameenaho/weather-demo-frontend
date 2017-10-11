@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../../components/header/Header'
 
-require("./App.css")
+import './App.css'
 
 export default ({children, links}) => (
   <div className="App-wrapper">

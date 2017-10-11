@@ -1,29 +1,22 @@
 .header-wrapper {
-  width: 100%;
-}
-
-header {
+  padding: 10px 10px 15px;
   height: 20px;
+  width: 50%;
   margin: 0 auto;
-}
-
-.header-list {
-  padding: 0 0 0 10px;
 }
 
 .header-item {
   display: inline;
-  padding: 0 5px 0 0;
+  margin: 0 10px 0 0;
 }
 
 .header-link {
-  padding: 5px;
-  color: #000;
   font-size: 0.8em;
   text-transform: uppercase;
+  padding: 0 5px 5px 5px;
+  color: #000;
 }
 
 .header-link:hover, .header-link-active {
   border-bottom: 2px solid #000;
-  color: #343638;
 }

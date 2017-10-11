@@ -1,0 +1,33 @@
+.temperature-list-wrapper {
+  /*margin: 10px;*/
+  padding: 10px 0 0 0;
+  clear: both;
+}
+
+.temperature-list-item {
+  padding: 3px 0;
+  font-size: 0.8em;
+  clear: both;
+}
+
+.temperature-date {
+  width: 100%;
+  font-size: 1.1em;
+  padding: 5px;
+  margin: 0 0 5px 0;
+  background-color: #0b9aea;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.temperature-time {
+  padding: 0 5px;
+  float: left;
+}
+
+.temperature-value {
+  font-family: Helvetica;
+  width: 50px;
+  float: left;
+  text-align: right;
+}

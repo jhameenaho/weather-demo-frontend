@@ -3,7 +3,9 @@ import * as types from '../types'
 const initState = 
 {
   query: '',
-  weather: {}
+  weather: {
+    temperature: []
+  }
 }
 
 const weather = (state = initState, action) => {

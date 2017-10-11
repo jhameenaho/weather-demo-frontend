@@ -25,7 +25,8 @@ const favourite = (state = initState, action) => {
         ...state,
         favourites: state.favourites.filter(favourite => favourite.id !== action.id)
       }
-    
+    case types.CLEAR_FAVOURITES_STATE:
+      return initState
     default:
       return state
   }

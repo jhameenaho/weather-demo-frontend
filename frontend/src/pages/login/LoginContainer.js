@@ -2,15 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { login } from '../../actions/auth'
 import LoginComponent from './LoginComponent'
-import { getFavourites } from '../../actions/favourite'
 
 class LoginContainer extends Component {
+  
   handleSubmit = (values) => {
     login(values).then(() => {
-      getFavourites()
+      this.props.history.push("/weather")
     })
-
-    this.props.history.push("/")
   }
 
   render () {

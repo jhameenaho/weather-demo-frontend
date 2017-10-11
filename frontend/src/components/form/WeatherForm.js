@@ -1,21 +1,22 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
+import './WeatherForm.css'
+
 let WeatherForm = props => {
   const { handleSubmit } = props
   return (
-    <div>
-      <form onSubmit={ handleSubmit }>
-        <Field
-          name="query"
-          placeholder="Search"
-          component="input"
-          type="text"
-        />
+    <form onSubmit={ handleSubmit } className="weather-form-wrapper">
+      <Field
+        name="query"
+        placeholder="Search..."
+        component="input"
+        type="text"
+        className ="weather-form-input"
+      />
 
-        <button type="submit">Search</button>
-      </form>
-    </div>
+      <button type="submit" className="weather-search" alt= "Go!"/>
+    </form>
   )
 }
 

@@ -1,0 +1,30 @@
+.weather-wrapper {
+  overflow: hidden;
+}
+
+.weather-location-wrapper {
+  float: left;
+  background-color: #9cc1d6;
+  padding: 10px;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+.weather-save {
+  float: left;
+  margin: 6px 0 0 6px;
+}
+
+.weather-result-wrapper {
+  margin: 10px;
+  width: 50%;
+  float: left;
+}
+
+.weather-favourites-wrapper {
+  width: 40%;
+  background-color: black;
+  height: 100px;
+  float: right;
+  box-sizing: border-box;
+}
