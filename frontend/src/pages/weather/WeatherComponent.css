@@ -17,14 +17,14 @@
 
 .weather-result-wrapper {
   margin: 10px;
-  width: 50%;
+  width: 30%;
   float: left;
 }
 
 .weather-favourites-wrapper {
-  width: 40%;
-  background-color: black;
+  width: 60%;
   height: 100px;
   float: right;
   box-sizing: border-box;
+  margin: 10px;
 }

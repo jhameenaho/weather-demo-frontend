@@ -20,8 +20,10 @@ export default ({favourites, weather, saveFavourite, searchWeather, deleteFavour
       </div>
     }
 
-    <div className="weather-favourites-wrapper">
-      <FavouritesList favourites={favourites} deleteFavourite={deleteFavourite}/>
-    </div>
+    { favourites.length > 0 &&
+      <div className="weather-favourites-wrapper">
+        <FavouritesList favourites={favourites} deleteFavourite={deleteFavourite}/>
+      </div>
+    }
   </div>
 )

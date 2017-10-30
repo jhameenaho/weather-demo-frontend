@@ -1,0 +1,25 @@
+.favourites-list {
+    
+}
+
+.favourites-list-item {
+    padding: 5px
+}
+
+.favourites-list-link {
+    color: #000;
+}
+
+.favourites-list-link:hover {
+    font-style: underline;
+    text-decoration: underline;
+}
+
+.favourites-list-button {
+    width: 50px;
+    margin: 0 0 0 5px;
+}
+
+.favourites-list-header {
+    padding: 10px;
+}
