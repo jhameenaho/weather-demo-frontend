@@ -1,5 +1,4 @@
 import { routerReducer as routing } from 'react-router-redux';
-import { reducer as form } from 'redux-form'
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
 import logger from 'redux-logger'
 import thunk from 'redux-thunk'
@@ -22,7 +21,6 @@ const isFetching = (state = '', action) => {
 
 const rootReducer = combineReducers({
   isFetching,
-  form,
   weather,
   auth,
   favourite,

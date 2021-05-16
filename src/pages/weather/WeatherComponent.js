@@ -8,7 +8,7 @@ import './WeatherComponent.css'
 export default ({favourites, weather, saveFavourite, searchWeather, deleteFavourite, authorized}) => (
   <div className="weather-wrapper">
      <WeatherForm onSubmit={searchWeather}/>
-    
+{/*     
     { weather.city &&
       <div className="weather-result-wrapper">
         <div className="weather-location-wrapper">{weather.city}, {weather.country}</div>
@@ -24,6 +24,6 @@ export default ({favourites, weather, saveFavourite, searchWeather, deleteFavour
       <div className="weather-favourites-wrapper">
         <FavouritesList favourites={favourites} deleteFavourite={deleteFavourite}/>
       </div>
-    }
+    } */}
   </div>
 )

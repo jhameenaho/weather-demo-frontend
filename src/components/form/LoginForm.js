@@ -1,5 +1,5 @@
 import React from 'react'
-import { Field, reduxForm } from 'redux-form'
+import { Field, Form } from 'react-final-form'
 
 import './LoginForm.css'
 
@@ -26,8 +26,8 @@ let LoginForm = props => {
   )
 }
 
-LoginForm = reduxForm({
-  form: 'login'
-})(LoginForm)
+// LoginForm = Form({
+//   form: 'login'
+// })(LoginForm)
 
 export default LoginForm;
