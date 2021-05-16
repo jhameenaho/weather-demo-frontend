@@ -4,12 +4,14 @@ import { Form, Field } from 'react-final-form'
 import './WeatherForm.css'
 
 const WeatherForm = props => {
+  const onSubmit = values => {
+    props.onSubmit(values)
+  }
+
   return (
     <Form
-    onSubmit={values => {
-      
-      }}
-      > {({ handleSubmit }) => (
+    onSubmit={(onSubmit)}
+    render={({ handleSubmit }) => (
       <form onSubmit={handleSubmit} className="weather-form-wrapper">
         <Field
           name="query"
@@ -21,12 +23,8 @@ const WeatherForm = props => {
 
         <button type="submit" className="weather-search" alt="Go!" />
       </form>
-    )} </Form>
+    )}/> 
   )
 }
-
-// WeatherForm = Form({
-//   form: 'weather'
-// })(WeatherForm)
 
 export default WeatherForm;
